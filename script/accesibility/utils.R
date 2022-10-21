@@ -20,7 +20,7 @@ mapping_lima <- function(data, modelo,name_legend = "Gravity model"){
       data = data,
       aes(color = .data[[modelo]]),
       size = 2.0,
-      alpha = 0.2
+      alpha = 0.7
     ) + 
     scale_color_gradientn(
       name_legend,
@@ -37,27 +37,27 @@ mapping_lima <- function(data, modelo,name_legend = "Gravity model"){
         line_col = "black",
         fill = c("white", "black"),
         text_col = "black",
-        text_size = 12,
+        text_size = 6,
         text_angle = 0)
     ) + 
     annotation_scale(
       line_width = 0.05,
       height = unit(0.1,"cm"),
-      text_face = 12 
+      text_face = 6
     ) +
     labs(title = name_legend) + 
     theme(
       plot.title = element_text(
         family = "bebas",
         face = "bold",
-        size = 38,
+        size = 12,
         hjust = 0.5),
       legend.title = element_text(
         family = "bebas",
-        size = 20),
+        size = 6),
       legend.text =  element_text(
-        size = 18),
-      axis.text = element_text(size = 20)
+        size = 12),
+      axis.text = element_text(size = 5)
       )
 }
 
@@ -78,7 +78,7 @@ mapping_iquitos <- function(data, modelo,name_legend = "Gravity model"){
       data = data,
       aes(color = .data[[modelo]]),
       size = 2.0,
-      alpha = 0.2
+      alpha = 0.7
     ) + 
     scale_color_gradientn(
       name_legend,
@@ -95,27 +95,27 @@ mapping_iquitos <- function(data, modelo,name_legend = "Gravity model"){
         line_col = "black",
         fill = c("white", "black"),
         text_col = "black",
-        text_size = 12,
+        text_size = 6,
         text_angle = 0)
     ) + 
     annotation_scale(
       line_width = 0.05,
       height = unit(0.1,"cm"),
-      text_face = 12 
+      text_face = 6 
     ) +
     labs(title = name_legend) + 
     theme(
       plot.title = element_text(
         family = "bebas",
         face = "bold",
-        size = 38,
+        size = 12,
         hjust = 0.5),
       legend.title = element_text(
         family = "bebas",
-        size = 20),
+        size = 6),
       legend.text =  element_text(
-        size = 18),
-      axis.text = element_text(size = 20)
+        size = 12),
+      axis.text = element_text(size = 5)
     )
 }
 
@@ -136,7 +136,7 @@ mapping_arequipa <- function(data, modelo,name_legend = "Gravity model"){
       data = data,
       aes(color = .data[[modelo]]),
       size = 2.0,
-      alpha = 0.2
+      alpha = 0.7
     ) + 
     scale_color_gradientn(
       name_legend,
@@ -153,26 +153,26 @@ mapping_arequipa <- function(data, modelo,name_legend = "Gravity model"){
         line_col = "black",
         fill = c("white", "black"),
         text_col = "black",
-        text_size = 12,
+        text_size = 6,
         text_angle = 0)
     ) + 
     annotation_scale(
       line_width = 0.05,
       height = unit(0.1,"cm"),
-      text_face = 12 
+      text_face = 6 
     ) +
     labs(title = name_legend) + 
     theme(
       plot.title = element_text(
         family = "bebas",
         face = "bold",
-        size = 38,
+        size = 12,
         hjust = 0.5),
       legend.title = element_text(
         family = "bebas",
-        size = 20),
+        size = 6),
       legend.text =  element_text(
-        size = 18),
-      axis.text = element_text(size = 20)
+        size = 12),
+      axis.text = element_text(size = 5)
     )
 }

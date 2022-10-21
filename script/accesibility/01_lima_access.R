@@ -12,12 +12,13 @@ library(ggspatial)
 library(cptcity)
 library(showtext)
 library(patchwork)
+library(stars)
 source("utils.R")
 options(java.parameters = "-Xmx8G")
-dir.create(here::here("Lima/pbf"))
 font_add_google("Bebas Neue", "bebas")
 showtext_auto()
 # 1. Configure of the calculate of travel time ---------------------------
+# Downloading pbf from https://extract.bbbike.org/
 r5r_core <- r5r::setup_r5(
   data_path = "Lima/pbf",
   verbose = FALSE
@@ -39,13 +40,13 @@ catchment <- cp |>
   st_buffer(dist = 5000) |> 
   st_transform(crs = 4326) |> 
   dplyr::select(CODCP)
+
 # count cp - - - - - - - - - - - - - - - - - - - - - - - - - -
 catchment$ncp <- lengths(st_intersects(catchment,cp))
 # count cs - - - - - - - - - - - - - - - - - - - - - - - - - -
 id_medicos <- st_contains(catchment,cs)
 catchment$nmedicos <- lapply(1:length(id_medicos),FUN = conteo) |> 
   unlist()
-
 catchment <- catchment |> st_centroid() |> 
   mutate(lat = st_coordinates(geom)[,2],
          lon = st_coordinates(geom)[,1],
@@ -160,15 +161,16 @@ ggsave(
   height = 5,
   bg = "white"
   )
-write_csv(access_modelos |> st_drop_geometry(),"lima_access_models.csv")
+
+# write_csv(access_modelos |> st_drop_geometry(),"lima_access_models.csv")
 # 8. new raster of accesibility ---------------------------------------------
 lima <- st_read("https://github.com/ambarja/gpkg-pe/raw/main/lima_distritos.gpkg")
-
 variograma <- variogram(
   gravity_model ~ 1,
   access_modelos,
   cressie = F
   )
+plot(variograma)
 model_vario <- fit.variogram(variograma,vgm(c("Sph","Gau","Exp")))
 plot(variograma,model_vario)
 grilla <- st_read("Lima/resources/lima_grid.gpkg")
@@ -181,7 +183,8 @@ index_gm <- st_rasterize(grilla %>% dplyr::select(ko, geom)) |>
 
 ggplot() +
   geom_spatraster(data = index_gm) +
-  scale_fill_whitebox_c() +
+  # geom_spatraster_contour(data = index_gm, breaks = seq(0, 6000, 500)) + 
+  scale_fill_whitebox_c("bl_yl_rd") +
   coord_sf(expand = FALSE) +
   labs(fill = "Gravity model") + 
   theme_minimal()
