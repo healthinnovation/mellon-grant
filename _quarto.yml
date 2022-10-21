@@ -1,0 +1,48 @@
+project:
+  type: website
+  resources:
+    - "images/twitter-card.png"
+
+website:
+  page-navigation: true
+  title: "Mellon Grant"
+  description: "MellonGrant is a long-term project where the objective is to explore the different levels of access to health services according to socio-economic levels, among other aspects."
+  site-url: ""
+  repo-url: https://github.com/healthinnovation/mellon-grant
+  repo-actions: [edit, issue]
+  open-graph: true
+  twitter-card:
+    creator: "@antony_barja"
+    image: "/images/twitter-card.png"
+
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    right: "&copy; Copyright 2022, Antony Barja"
+    background: "#606060"
+
+  navbar:
+    background: "#606060"
+    logo: "svg/logo.png"
+    pinned: true
+    align: center
+    right:
+      - icon: github
+        href: https://github.com/healthinnovation/mellon-grant
+    left:
+     - href: index.qmd
+       text: Home
+     - text: Resources
+       menu:
+        - href: https://storymaps.arcgis.com/stories/0d4f7e8890ba45efafd902845f07829a
+          text: Healthcare access inequities by ethnicity in Peru
+format:
+  html:
+    theme:
+      light: [cosmo,theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: 'Roboto Slab'
+
+editor: visual

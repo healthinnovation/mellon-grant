@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300&display=swap');
+  
+// Base document colors
+$body-bg: #181818;
+$body-color: white;
+$link-color: #195dfc;
+
+$light: #525252;
+
+// Navigation element colors
+$footer-bg: #181818;
+$navbar-bg: #0a7b42;
+$sidebar-bg: #0a7b42;
+
+// Code blocks
+$code-block-bg-alpha: -.8;
+
+// Bootstrap popovers
+$popover-bg: #242424;
+
+// Bootstrap inputs
+$input-bg: #242424;
+
+
+/*-- scss:rules --*/
+
+.layout-example {
+  background: $gray-700;
+}
