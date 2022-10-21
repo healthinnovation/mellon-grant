@@ -1,4 +1,6 @@
-# **Proyecto: Mellon-grant**
+# **MellonGrant**
+
+<img src="svg/logo.png" align="right" width="25%">
 
 [![Lifecycle:experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
